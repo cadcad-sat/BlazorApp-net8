@@ -1,0 +1,21 @@
+﻿<button class="btn btn-primary mb-1" @onclick="ChangeFocus">Click me to change focus</button>
+<input @ref=InputField @onfocus="HandleFocus" @bind="data" />
+
+@code {
+    private ElementReference InputField;
+    private string? data;
+
+    private async Task ChangeFocus()
+    {
+        await InputField.FocusAsync();
+    }
+
+    private async Task HandleFocus()
+    {
+        await Task.Delay(0);
+        if (string.IsNullOrEmpty(data))
+        {
+            data = "Received focus";
+        }
+    }
+}

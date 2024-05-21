@@ -1,19 +1,28 @@
 ﻿@page "/counter"
 @rendermode InteractiveAuto
+@inject IJSRuntime JS
 
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
 
-<p role="status">Current count: @currentCount</p>
+<p id="currentCount">Current count: @currentCount</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick='mouseEvent => HandleClick(mouseEvent, "Hello")'>Click me</button>
 
 @code {
     private int currentCount = 0;
 
-    private void IncrementCount()
+    private async Task HandleClick(MouseEventArgs e, string msg)
     {
-        currentCount++;
+        if (e.CtrlKey) // Ctrl key pressed as well
+        {
+            await JS.InvokeVoidAsync("alert", msg);
+            currentCount += 5;
+        }
+        else
+        {
+            currentCount++;
+        }
     }
 }

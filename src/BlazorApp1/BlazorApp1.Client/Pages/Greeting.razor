@@ -1,0 +1,32 @@
+﻿@using MyGrpcService
+@page "/greeting"
+@rendermode InteractiveAuto
+@inject IGreetingService service
+
+<PageTitle>Greeting</PageTitle>
+
+<h1>Hello, world! (@(OperatingSystem.IsBrowser() ? "WASM" : "Server"))</h1>
+
+<div>
+    <label>
+        Name:
+        <input @bind="Name" />
+    </label>
+</div>
+<div>
+    <button @onclick="SayHelloAsync">Say Hello</button>
+</div>
+<div>
+    @Message
+</div>
+
+@code {
+    private string Name { get; set; } = "";
+    private string Message { get; set; } = "";
+    private async Task SayHelloAsync()
+    {
+        var request = new HelloRequest { Name = Name };
+        var response = await service.SayHello(request);
+        Message = response.Message;
+    }
+}

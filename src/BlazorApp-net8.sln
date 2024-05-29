@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGrpcService", "MyGrpcService\MyGrpcService.csproj", "{169520A9-C7B0-4C6C-9FAC-129CC036B110}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{4747E4AF-28CC-4B47-876B-C21E234D7B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4747E4AF-28CC-4B47-876B-C21E234D7B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4747E4AF-28CC-4B47-876B-C21E234D7B12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{169520A9-C7B0-4C6C-9FAC-129CC036B110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{169520A9-C7B0-4C6C-9FAC-129CC036B110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{169520A9-C7B0-4C6C-9FAC-129CC036B110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{169520A9-C7B0-4C6C-9FAC-129CC036B110}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

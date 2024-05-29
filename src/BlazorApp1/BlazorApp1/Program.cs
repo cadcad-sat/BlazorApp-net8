@@ -1,12 +1,18 @@
-using BlazorApp1.Client.Pages;
 using BlazorApp1.Components;
+using MyGrpcService;
+using ProtoBuf.Grpc.Server;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// gRPC サービスを追加
+builder.Services.AddCodeFirstGrpc();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddTransient<IGreetingService, GreetingService>();
 
 var app = builder.Build();
 
@@ -26,6 +32,10 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
+
+// gRPC のサービスの追加
+app.UseGrpcWeb();
+app.MapGrpcService<GreetingService>().EnableGrpcWeb();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()

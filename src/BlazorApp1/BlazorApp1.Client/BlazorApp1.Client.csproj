@@ -19,4 +19,10 @@
     <ProjectReference Include="..\..\MyGrpcService\MyGrpcService.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Pages\Weather.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+
 </Project>

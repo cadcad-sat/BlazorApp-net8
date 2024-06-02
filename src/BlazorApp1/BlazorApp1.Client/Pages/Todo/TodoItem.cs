@@ -1,4 +1,4 @@
-﻿namespace BlazorApp1.Components.Pages.Todo;
+﻿namespace BlazorApp1.Client.Pages.Todo;
 
 public class TodoItem
 {

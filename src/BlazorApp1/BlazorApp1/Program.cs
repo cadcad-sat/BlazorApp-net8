@@ -9,7 +9,6 @@ builder.Services.AddCodeFirstGrpc();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
 builder.Services.AddTransient<IGreetingService, GreetingService>();
@@ -38,7 +37,6 @@ app.UseGrpcWeb();
 app.MapGrpcService<GreetingService>().EnableGrpcWeb();
 
 app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(BlazorApp1.Client._Imports).Assembly);
 
